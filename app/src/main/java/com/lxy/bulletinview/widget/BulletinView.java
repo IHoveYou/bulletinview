@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
@@ -88,10 +89,26 @@ public class BulletinView extends NestedScrollView {
                 view1.setLayoutParams(getLayoutParams());
                 view2.setLayoutParams(getLayoutParams());
                 setAnimate(view1);
-                setAnimate(view2);
+                setAnimate(view2).setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        linearLayout.removeView(view1);
+                        view1 = view2;
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });;
                 linearLayout.addView(view2);
                 linearLayout.addView(view1);
-                view1 = view2;
+
             }
         }
     }
@@ -100,7 +117,7 @@ public class BulletinView extends NestedScrollView {
      * 属性动画
      * 平移
      */
-    private void setAnimate(View view) {
+    private TranslateAnimation setAnimate(View view) {
 //      imageView中凡是有get，set方法的属性，都可以通过属性动画操作
 //      创建属性动画对象，并设置移动的方向和偏移量
 //      translationX是imageview的平移属性
@@ -111,6 +128,8 @@ public class BulletinView extends NestedScrollView {
         objectAnimator.setFillAfter(true);
         view.setAnimation(objectAnimator);
         objectAnimator.start();
+
+        return objectAnimator;
     }
 
 
