@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.lxy.bulletinview.widget.BulletinView;
 import com.lxy.bulletinview.widget.HomeAdapter;
@@ -34,5 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,itemData,Toast.LENGTH_LONG).show();
             }
         });
+
+       ViewFlipper viewFlipper=new ViewFlipper(this);
     }
 }
