@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="#eee"
+    >
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <!--<TextView-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:text="23333" />-->
+
+</LinearLayout>
