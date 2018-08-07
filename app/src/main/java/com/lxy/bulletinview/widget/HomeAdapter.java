@@ -21,19 +21,19 @@ public class HomeAdapter extends BulletinView.BulletinViewadapter<String> {
     }
 
     @Override
-    int getItemCount() {
+    public int getItemCount() {
         return getData().size();
     }
 
     @Override
-    View onBindViewHolder(View itemView, int position, String itemData) {
+    public  View onBindViewHolder(View itemView, int position, String itemData) {
         TextView textView = itemView.findViewById(R.id.tv_line);
         textView.setText(itemData);
         return itemView;
     }
 
     @Override
-    View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
+    public View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
         View view;
         if (viewType%2!=0){
             view =inflater.inflate(R.layout.lines, parent);
