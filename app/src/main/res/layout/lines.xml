@@ -10,7 +10,7 @@
     <TextView
         android:gravity="center"
         android:id="@+id/tv_line"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="50dp" />
 
     <!--<TextView-->

@@ -190,7 +190,7 @@ public class BulletinView extends NestedScrollView {
     public void onStart() {//开始滚动
         isStop = false;
         if (adapter != null)
-            mHandler.postDelayed(r, 2000);
+            mHandler.postDelayed(r, 500);
     }
 
 
