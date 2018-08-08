@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         bulletinView=findViewById(R.id.buttonPanel);
         //horizontalView=findViewById(R.id.horizontalView);
         List<String> list1 = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             list1.add("别人家孩子作业做到转钟");
             list1.add("别人家孩子周末都在家学习");
             list1.add("就知道玩");
