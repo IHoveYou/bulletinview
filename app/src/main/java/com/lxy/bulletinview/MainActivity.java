@@ -17,15 +17,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     BulletinView bulletinView;
     HomeAdapter adapter;
-//    HorizontalView horizontalView;
-//    HorizontalView.HorizontaViewAdapter horizontaViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bulletinView=findViewById(R.id.buttonPanel);
-        //horizontalView=findViewById(R.id.horizontalView);
         List<String> list1 = new ArrayList<>();
         for (int i = 0; i < 100000; i++) {
             list1.add("1");
@@ -35,10 +32,7 @@ public class MainActivity extends AppCompatActivity {
             list1.add("5");
             list1.add("6");
         }
-
         adapter=new HomeAdapter(list1);
-//        horizontaViewAdapter =new HometwoAdapter(list1);
-//        horizontalView.setAdapter(horizontaViewAdapter);
         bulletinView.setAdapter(adapter);
         bulletinView.setOnItemClickListener(new BulletinView.OnItemClickListener<String>() {
             @Override
@@ -46,7 +40,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,itemData,Toast.LENGTH_LONG).show();
             }
         });
-
-       ViewFlipper viewFlipper=new ViewFlipper(this);
     }
 }

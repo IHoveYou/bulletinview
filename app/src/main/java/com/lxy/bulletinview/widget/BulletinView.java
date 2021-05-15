@@ -127,14 +127,22 @@ public class BulletinView extends LinearLayout {
         }
         int viewType2 = getPson(viewType + 1);
         linearLayout.removeAllViews();
-        view1 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType,adapter.getType(viewType)),
-                viewType, adapter.getData().get(viewType),adapter.getType(viewType));
-        view2 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType2,adapter.getType(viewType)),
-                viewType2, adapter.getData().get(viewType2),adapter.getType(viewType));
+        view1 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType, adapter.getType(viewType)),
+                viewType, adapter.getData().get(viewType), adapter.getType(viewType));
+        view2 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType2, adapter.getType(viewType)),
+                viewType2, adapter.getData().get(viewType2), adapter.getType(viewType));
         view1.setLayoutParams(getLayoutParams());
         view2.setLayoutParams(getLayoutParams());
+
+//         滚动方向为从上往下时打开
+//        linearLayout.addView(view2);
+//        linearLayout.addView(view1);
+
+        //滚动方向从下往上
         linearLayout.addView(view1);
         linearLayout.addView(view2);
+
+
         setAnimate(view1);
         setAnimate(view2);
 
@@ -281,9 +289,9 @@ public class BulletinView extends LinearLayout {
 
         public abstract int getItemCount();//总条数
 
-        public abstract View onBindViewHolder(View itemView, int position, T itemData,int type);//布局绑定参数
+        public abstract View onBindViewHolder(View itemView, int position, T itemData, int type);//布局绑定参数
 
-        protected abstract View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int position,int type);//创建布局
+        protected abstract View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int position, int type);//创建布局
 
         protected int getType(int position) {
             return position;
