@@ -118,7 +118,7 @@ public class BulletinView extends LinearLayout {
 
 
     public void init() {
-        if (view1==null){
+        if (view1 == null) {
             removeAllViews();
             addView(linearLayout);
         }
@@ -127,8 +127,10 @@ public class BulletinView extends LinearLayout {
         }
         int viewType2 = getPson(viewType + 1);
         linearLayout.removeAllViews();
-        view1 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType), viewType, adapter.getData().get(viewType));
-        view2 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType2), viewType2, adapter.getData().get(viewType2));
+        view1 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType,adapter.getType(viewType)),
+                viewType, adapter.getData().get(viewType),adapter.getType(viewType));
+        view2 = adapter.onBindViewHolder(adapter.onCreateViewHolder(inflater, linearLayout, viewType2,adapter.getType(viewType)),
+                viewType2, adapter.getData().get(viewType2),adapter.getType(viewType));
         view1.setLayoutParams(getLayoutParams());
         view2.setLayoutParams(getLayoutParams());
         linearLayout.addView(view1);
@@ -277,11 +279,15 @@ public class BulletinView extends LinearLayout {
             return data;
         }
 
-        public abstract int getItemCount();
+        public abstract int getItemCount();//总条数
 
-        public abstract View onBindViewHolder(View itemView, int position, T itemData);
+        public abstract View onBindViewHolder(View itemView, int position, T itemData,int type);//布局绑定参数
 
-        protected abstract View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int viewType);
+        protected abstract View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int position,int type);//创建布局
+
+        protected int getType(int position) {
+            return position;
+        }
     }
 
     public interface OnItemClickListener<T> {
