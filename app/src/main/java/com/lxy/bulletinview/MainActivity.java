@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         //horizontalView=findViewById(R.id.horizontalView);
         List<String> list1 = new ArrayList<>();
         for (int i = 0; i < 100000; i++) {
-            list1.add("别人家孩子作业做到转钟");
-            list1.add("别人家孩子周末都在家学习");
-            list1.add("就知道玩");
-            list1.add("别人家孩子作业做到转钟");
-            list1.add("就知道玩");
-            list1.add("别人家孩子周末都在家学习");
+            list1.add("1");
+            list1.add("2");
+            list1.add("3");
+            list1.add("4");
+            list1.add("5");
+            list1.add("6");
         }
 
         adapter=new HomeAdapter(list1);

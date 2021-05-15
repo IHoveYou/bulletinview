@@ -36,9 +36,9 @@ public class HomeAdapter extends BulletinView.BulletinViewadapter<String> {
     public View onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
         View view;
         if (viewType%2!=0){
-            view =inflater.inflate(R.layout.lines, parent);
+            view =inflater.inflate(R.layout.lines, parent,false);
         }else {
-            view =inflater.inflate(R.layout.lines_two, parent);
+            view =inflater.inflate(R.layout.lines_two, parent,false);
         }
         return view;
     }
